@@ -240,11 +240,11 @@ const ResourceManagement = () => {
                     <span className="font-bold text-green-600">15 resources</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Under-utilized (<70%):</span>
+                    <span>Under-utilized (&lt;70%):</span>
                     <span className="font-bold text-yellow-600">6 resources</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Over-allocated (>85%):</span>
+                    <span>Over-allocated (&gt;85%):</span>
                     <span className="font-bold text-red-600">3 resources</span>
                   </div>
                 </div>
