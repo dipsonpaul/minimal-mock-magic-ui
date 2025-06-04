@@ -10,6 +10,14 @@ import PMS from "./pages/PMS";
 import CoMS from "./pages/CoMS";
 import CRM from "./pages/CRM";
 import HRMS from "./pages/HRMS";
+import QualityBQQ from "./pages/QualityBQQ";
+import DocumentManagement from "./pages/DocumentManagement";
+import Procurement from "./pages/Procurement";
+import InventoryManagement from "./pages/InventoryManagement";
+import TaskManagement from "./pages/TaskManagement";
+import SalesManagement from "./pages/SalesManagement";
+import ResourceManagement from "./pages/ResourceManagement";
+import Estimation from "./pages/Estimation";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +33,14 @@ const App = () => (
           <Route path="/coms" element={<CoMS />} />
           <Route path="/crm" element={<CRM />} />
           <Route path="/hrms" element={<HRMS />} />
+          <Route path="/quality-bqq" element={<QualityBQQ />} />
+          <Route path="/dms" element={<DocumentManagement />} />
+          <Route path="/procurement" element={<Procurement />} />
+          <Route path="/inventory" element={<InventoryManagement />} />
+          <Route path="/task-management" element={<TaskManagement />} />
+          <Route path="/sales" element={<SalesManagement />} />
+          <Route path="/resource-management" element={<ResourceManagement />} />
+          <Route path="/estimation" element={<Estimation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

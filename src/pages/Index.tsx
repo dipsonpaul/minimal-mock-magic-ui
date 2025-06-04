@@ -71,7 +71,7 @@ const Index = () => {
       icon: FileText,
       color: "bg-teal-600",
       features: ["Quality Control", "Bill Generation", "Cost Estimation", "Standards"],
-      route: "#"
+      route: "/quality-bqq"
     },
     {
       id: "dms",
@@ -80,7 +80,7 @@ const Index = () => {
       icon: FileText,
       color: "bg-indigo-600",
       features: ["File Storage", "Version Control", "Access Rights", "Search"],
-      route: "#"
+      route: "/dms"
     },
     {
       id: "proms",
@@ -89,7 +89,7 @@ const Index = () => {
       icon: ShoppingCart,
       color: "bg-red-600",
       features: ["Purchase Orders", "Vendor Management", "Inventory", "Cost Control"],
-      route: "#"
+      route: "/procurement"
     },
     {
       id: "ims",
@@ -98,7 +98,7 @@ const Index = () => {
       icon: Warehouse,
       color: "bg-yellow-600",
       features: ["Stock Tracking", "Warehouse Management", "Supply Chain", "Reports"],
-      route: "#"
+      route: "/inventory"
     },
     {
       id: "tms",
@@ -107,7 +107,7 @@ const Index = () => {
       icon: Settings,
       color: "bg-gray-600",
       features: ["Task Assignment", "Progress Tracking", "Deadlines", "Collaboration"],
-      route: "#"
+      route: "/task-management"
     },
     {
       id: "sms",
@@ -116,7 +116,7 @@ const Index = () => {
       icon: TrendingUp,
       color: "bg-pink-600",
       features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
-      route: "#"
+      route: "/sales"
     },
     {
       id: "rms",
@@ -125,7 +125,7 @@ const Index = () => {
       icon: BarChart3,
       color: "bg-cyan-600",
       features: ["Resource Allocation", "Capacity Planning", "Utilization Reports", "Optimization"],
-      route: "#"
+      route: "/resource-management"
     },
     {
       id: "estimation",
@@ -134,17 +134,17 @@ const Index = () => {
       icon: Calculator,
       color: "bg-emerald-600",
       features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
-      route: "#"
+      route: "/estimation"
     }
   ];
 
   const navigationItems = [
     { name: "HOME", route: "/" },
-    { name: "PURCHASE", route: "#" },
-    { name: "WAREHOUSE", route: "#" },
-    { name: "SALES", route: "#" },
-    { name: "BUYER", route: "#" },
-    { name: "RMS", route: "#" },
+    { name: "PURCHASE", route: "/procurement" },
+    { name: "WAREHOUSE", route: "/inventory" },
+    { name: "SALES", route: "/sales" },
+    { name: "BUYER", route: "/procurement" },
+    { name: "RMS", route: "/resource-management" },
     { 
       name: "MODULES", 
       isDropdown: true, 
@@ -153,8 +153,14 @@ const Index = () => {
         { name: "CoMS", route: "/coms" },
         { name: "CRM", route: "/crm" },
         { name: "HRMS", route: "/hrms" },
-        { name: "Q/BQQ", route: "#" },
-        { name: "DMS", route: "#" }
+        { name: "Q/BQQ", route: "/quality-bqq" },
+        { name: "DMS", route: "/dms" },
+        { name: "ProMS", route: "/procurement" },
+        { name: "IMS", route: "/inventory" },
+        { name: "TMS", route: "/task-management" },
+        { name: "SMS", route: "/sales" },
+        { name: "RMS", route: "/resource-management" },
+        { name: "Estimation", route: "/estimation" }
       ]
     },
     { name: "SETTINGS", route: "#" },
@@ -178,7 +184,7 @@ const Index = () => {
                       {item.name}
                       <ChevronDown className="h-4 w-4 ml-1" />
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="bg-white border shadow-lg">
+                    <DropdownMenuContent className="bg-white border shadow-lg z-50">
                       {item.items?.map((subItem) => (
                         <DropdownMenuItem key={subItem.name} asChild>
                           <Link to={subItem.route} className="cursor-pointer">
@@ -281,20 +287,21 @@ const Index = () => {
           <h2 className="text-2xl font-bold text-slate-800 mb-6">Quick Actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { title: "New Project", description: "Start a new project", color: "bg-blue-500" },
-              { title: "Generate Report", description: "Create custom reports", color: "bg-green-500" },
-              { title: "Manage Users", description: "User administration", color: "bg-purple-500" },
-              { title: "System Settings", description: "Configure system", color: "bg-orange-500" }
+              { title: "New Project", description: "Start a new project", color: "bg-blue-500", route: "/pms" },
+              { title: "Generate Report", description: "Create custom reports", color: "bg-green-500", route: "#" },
+              { title: "Manage Users", description: "User administration", color: "bg-purple-500", route: "/hrms" },
+              { title: "System Settings", description: "Configure system", color: "bg-orange-500", route: "#" }
             ].map((action, index) => (
-              <Button
-                key={index}
-                variant="outline"
-                className="h-20 flex-col space-y-1 hover:shadow-md transition-all duration-300"
-              >
-                <div className={`w-8 h-8 ${action.color} rounded-full mb-1`}></div>
-                <span className="font-medium">{action.title}</span>
-                <span className="text-xs text-gray-500">{action.description}</span>
-              </Button>
+              <Link key={index} to={action.route}>
+                <Button
+                  variant="outline"
+                  className="h-20 flex-col space-y-1 hover:shadow-md transition-all duration-300 w-full"
+                >
+                  <div className={`w-8 h-8 ${action.color} rounded-full mb-1`}></div>
+                  <span className="font-medium">{action.title}</span>
+                  <span className="text-xs text-gray-500">{action.description}</span>
+                </Button>
+              </Link>
             ))}
           </div>
         </div>
