@@ -3,6 +3,12 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { 
   Users, 
   Settings, 
@@ -13,8 +19,10 @@ import {
   Calculator,
   UserCheck,
   ClipboardList,
-  TrendingUp
+  TrendingUp,
+  ChevronDown
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [activeModule, setActiveModule] = useState<string | null>(null);
@@ -26,7 +34,8 @@ const Index = () => {
       description: "Project Management System",
       icon: ClipboardList,
       color: "bg-blue-600",
-      features: ["Project Tracking", "Task Management", "Timeline View", "Resource Allocation"]
+      features: ["Project Tracking", "Task Management", "Timeline View", "Resource Allocation"],
+      route: "/pms"
     },
     {
       id: "coms",
@@ -34,7 +43,8 @@ const Index = () => {
       description: "Communication Management",
       icon: Users,
       color: "bg-purple-600",
-      features: ["Team Chat", "Video Calls", "Document Sharing", "Notifications"]
+      features: ["Team Chat", "Video Calls", "Document Sharing", "Notifications"],
+      route: "/coms"
     },
     {
       id: "crm",
@@ -42,7 +52,8 @@ const Index = () => {
       description: "Customer Relationship Management",
       icon: UserCheck,
       color: "bg-green-600",
-      features: ["Lead Management", "Customer Database", "Sales Pipeline", "Analytics"]
+      features: ["Lead Management", "Customer Database", "Sales Pipeline", "Analytics"],
+      route: "/crm"
     },
     {
       id: "hrms",
@@ -50,7 +61,8 @@ const Index = () => {
       description: "Human Resource Management",
       icon: Users,
       color: "bg-orange-600",
-      features: ["Employee Records", "Payroll", "Attendance", "Performance"]
+      features: ["Employee Records", "Payroll", "Attendance", "Performance"],
+      route: "/hrms"
     },
     {
       id: "qms",
@@ -58,7 +70,8 @@ const Index = () => {
       description: "Quality & Bill of Quantities",
       icon: FileText,
       color: "bg-teal-600",
-      features: ["Quality Control", "Bill Generation", "Cost Estimation", "Standards"]
+      features: ["Quality Control", "Bill Generation", "Cost Estimation", "Standards"],
+      route: "#"
     },
     {
       id: "dms",
@@ -66,7 +79,8 @@ const Index = () => {
       description: "Document Management System",
       icon: FileText,
       color: "bg-indigo-600",
-      features: ["File Storage", "Version Control", "Access Rights", "Search"]
+      features: ["File Storage", "Version Control", "Access Rights", "Search"],
+      route: "#"
     },
     {
       id: "proms",
@@ -74,7 +88,8 @@ const Index = () => {
       description: "Procurement Management",
       icon: ShoppingCart,
       color: "bg-red-600",
-      features: ["Purchase Orders", "Vendor Management", "Inventory", "Cost Control"]
+      features: ["Purchase Orders", "Vendor Management", "Inventory", "Cost Control"],
+      route: "#"
     },
     {
       id: "ims",
@@ -82,7 +97,8 @@ const Index = () => {
       description: "Inventory Management",
       icon: Warehouse,
       color: "bg-yellow-600",
-      features: ["Stock Tracking", "Warehouse Management", "Supply Chain", "Reports"]
+      features: ["Stock Tracking", "Warehouse Management", "Supply Chain", "Reports"],
+      route: "#"
     },
     {
       id: "tms",
@@ -90,7 +106,8 @@ const Index = () => {
       description: "Task Management System",
       icon: Settings,
       color: "bg-gray-600",
-      features: ["Task Assignment", "Progress Tracking", "Deadlines", "Collaboration"]
+      features: ["Task Assignment", "Progress Tracking", "Deadlines", "Collaboration"],
+      route: "#"
     },
     {
       id: "sms",
@@ -98,7 +115,8 @@ const Index = () => {
       description: "Sales Management System",
       icon: TrendingUp,
       color: "bg-pink-600",
-      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"]
+      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
+      route: "#"
     },
     {
       id: "rms",
@@ -106,7 +124,8 @@ const Index = () => {
       description: "Resource Management",
       icon: BarChart3,
       color: "bg-cyan-600",
-      features: ["Resource Allocation", "Capacity Planning", "Utilization Reports", "Optimization"]
+      features: ["Resource Allocation", "Capacity Planning", "Utilization Reports", "Optimization"],
+      route: "#"
     },
     {
       id: "estimation",
@@ -114,12 +133,32 @@ const Index = () => {
       description: "Cost Estimation Module",
       icon: Calculator,
       color: "bg-emerald-600",
-      features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"]
+      features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
+      route: "#"
     }
   ];
 
   const navigationItems = [
-    "HOME", "PURCHASE", "WAREHOUSE", "SALES", "BUYER", "RMS", "SETTINGS", "REPORTS"
+    { name: "HOME", route: "/" },
+    { name: "PURCHASE", route: "#" },
+    { name: "WAREHOUSE", route: "#" },
+    { name: "SALES", route: "#" },
+    { name: "BUYER", route: "#" },
+    { name: "RMS", route: "#" },
+    { 
+      name: "MODULES", 
+      isDropdown: true, 
+      items: [
+        { name: "PMS", route: "/pms" },
+        { name: "CoMS", route: "/coms" },
+        { name: "CRM", route: "/crm" },
+        { name: "HRMS", route: "/hrms" },
+        { name: "Q/BQQ", route: "#" },
+        { name: "DMS", route: "#" }
+      ]
+    },
+    { name: "SETTINGS", route: "#" },
+    { name: "REPORTS", route: "#" }
   ];
 
   return (
@@ -133,12 +172,31 @@ const Index = () => {
             </div>
             <nav className="hidden md:flex space-x-8">
               {navigationItems.map((item) => (
-                <button
-                  key={item}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-                >
-                  {item}
-                </button>
+                item.isDropdown ? (
+                  <DropdownMenu key={item.name}>
+                    <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium">
+                      {item.name}
+                      <ChevronDown className="h-4 w-4 ml-1" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="bg-white border shadow-lg">
+                      {item.items?.map((subItem) => (
+                        <DropdownMenuItem key={subItem.name} asChild>
+                          <Link to={subItem.route} className="cursor-pointer">
+                            {subItem.name}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.route}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </nav>
             <div className="flex items-center space-x-4">
@@ -204,12 +262,14 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                  <Button 
-                    className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
-                    size="sm"
-                  >
-                    Launch {module.title}
-                  </Button>
+                  <Link to={module.route}>
+                    <Button 
+                      className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
+                      size="sm"
+                    >
+                      Launch {module.title}
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             );
