@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -28,8 +29,8 @@ const Index = () => {
 
   const modules = [
     {
-      id: "hm",
-      title: "HM",
+      id: "pms",
+      title: "PMS",
       description: "Project Management System",
       icon: ClipboardList,
       color: "bg-blue-600",
@@ -141,21 +142,15 @@ const Index = () => {
     { name: "HOME", route: "/" },
     { name: "PURCHASE", route: "/procurement" },
     { name: "WAREHOUSE", route: "/inventory" },
+    { name: "SALES", route: "/sales" },
     { name: "BUYER", route: "/procurement" },
     { name: "RMS", route: "/resource-management" },
-    { 
-      name: "SALES & COMMUNICATION",
-      isDropdown: true, 
-      items: [
-        { name: "Sales", route: "/sales" },
-        { name: "CoMS", route: "/coms" }
-      ]
-    },
     { 
       name: "MODULES", 
       isDropdown: true, 
       items: [
-        { name: "HM", route: "/pms" },
+        { name: "PMS", route: "/pms" },
+        { name: "CoMS", route: "/coms" },
         { name: "CRM", route: "/crm" },
         { name: "HRMS", route: "/hrms" },
         { name: "Q/BQQ", route: "/quality-bqq" },
@@ -163,6 +158,7 @@ const Index = () => {
         { name: "ProMS", route: "/procurement" },
         { name: "IMS", route: "/inventory" },
         { name: "TMS", route: "/task-management" },
+        { name: "SMS", route: "/sales" },
         { name: "RMS", route: "/resource-management" },
         { name: "Estimation", route: "/estimation" }
       ]
@@ -177,7 +173,7 @@ const Index = () => {
       <header className="bg-slate-900 text-white shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x Thoreau-4">
+            <div className="flex items-center space-x-4">
               <div className="text-xl font-bold text-blue-400">Company name</div>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -214,7 +210,7 @@ const Index = () => {
                 Consumption Request
               </Badge>
               <Badge variant="secondary" className="bg-red-600 text-white">
-                Logout
+           Logout
               </Badge>
             </div>
           </div>
