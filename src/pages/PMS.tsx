@@ -48,19 +48,12 @@ const PMS = () => {
     }
   ];
 
-const tasks = [
-  { id: 1, title: "Create Mood Board", assignee: "Alice Johnson", status: "In Progress", priority: "High" },
-  { id: 2, title: "Site Prep & Measurements", assignee: "Bob Smith", status: "Completed", priority: "Medium" },
-  { id: 3, title: "Flooring Installation", assignee: "Carol Davis", status: "Pending", priority: "Low" },
-  { id: 4, title: "Client Design Review", assignee: "David Wilson", status: "In Progress", priority: "High" }
-];
-const milestones = [
-  { date: "2025-06-01", title: "Initial Consultation", status: "completed" },
-  { date: "2025-06-15", title: "Site Measurements & Style Planning", status: "completed" },
-  { date: "2025-07-01", title: "Design Development", status: "current" },
-  { date: "2025-07-30", title: "Procurement & Contractor Coordination", status: "upcoming" },
-  { date: "2025-08-15", title: "Installation & Styling", status: "upcoming" }
-];
+  const tasks = [
+    { id: 1, title: "Design Homepage ", assignee: "Alice Johnson", status: "In Progress", priority: "High" },
+    { id: 2, title: "Setup Environment", assignee: "Bob Smith", status: "Completed", priority: "Medium" },
+    { id: 3, title: "setting cement", assignee: "Carol Davis", status: "Pending", priority: "Low" },
+    { id: 4, title: "Review Session", assignee: "David Wilson", status: "In Progress", priority: "High" }
+  ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -211,7 +204,6 @@ const milestones = [
           </div>
         )}
 
-
         {activeTab === "timeline" && (
           <div className="space-y-6">
             <Card>
@@ -219,28 +211,28 @@ const milestones = [
                 <CardTitle>Project Timeline</CardTitle>
                 <CardDescription>Visual timeline of project milestones</CardDescription>
               </CardHeader>
-             <CardContent>
-  <div className="space-y-6">
-    {milestones.map((milestone, index) => (
-      <div key={index} className="flex items-center space-x-4">
-        <div
-          className={`w-4 h-4 rounded-full ${
-            milestone.status === "completed"
-              ? "bg-green-500"
-              : milestone.status === "current"
-              ? "bg-blue-500"
-              : "bg-gray-300"
-          }`}
-        ></div>
-        <div className="flex-1">
-          <h4 className="font-medium">{milestone.title}</h4>
-          <p className="text-sm text-gray-600">{milestone.date}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</CardContent>
-
+              <CardContent>
+                <div className="space-y-6">
+                  {[
+                    { date: "2025-06-01", title: "Project Kickoff", status: "completed" },
+                    { date: "2025-06-15", title: "Requirements Gathering", status: "completed" },
+                    { date: "2025-07-01", title: "Development Phase", status: "current" },
+                    { date: "2025-07-30", title: "Testing Phase", status: "upcoming" },
+                    { date: "2025-08-15", title: "Deployment", status: "upcoming" }
+                  ].map((milestone, index) => (
+                    <div key={index} className="flex items-center space-x-4">
+                      <div className={`w-4 h-4 rounded-full ${
+                        milestone.status === "completed" ? "bg-green-500" :
+                        milestone.status === "current" ? "bg-blue-500" : "bg-gray-300"
+                      }`}></div>
+                      <div className="flex-1">
+                        <h4 className="font-medium">{milestone.title}</h4>
+                        <p className="text-sm text-gray-600">{milestone.date}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
             </Card>
           </div>
         )}

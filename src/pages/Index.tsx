@@ -37,42 +37,14 @@ const Index = () => {
       features: ["Project Tracking", "Task Management", "Timeline View", "Resource Allocation"],
       route: "/pms"
     },
-   , {
-      id: "estimation",
-      title: "Estimation",
-      description: "Cost Estimation Module",
-      icon: Calculator,
-      color: "bg-emerald-600",
-      features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
-      route: "/estimation"
-    },
-      {
-      id: "sms",
-      title: "SMS",
-      description: "Sales Management System",
-      icon: TrendingUp,
-      color: "bg-pink-600",
-      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
-      route: "/sales"
-    },
- 
     {
-      id: "qms",
-      title: "Q/BQQ",
-      description: "Quality & Bill of Quantities",
-      icon: FileText,
-      color: "bg-teal-600",
-      features: ["Quality Control", "Bill Generation", "Cost Estimation", "Standards"],
-      route: "/quality-bqq"
-    },
-    {
-      id: "dms",
-      title: "DMS",
-      description: "Document Management System",
-      icon: FileText,
-      color: "bg-indigo-600",
-      features: ["File Storage", "Version Control", "Access Rights", "Search"],
-      route: "/dms"
+      id: "coms",
+      title: "CoMS",
+      description: "Communication Management",
+      icon: Users,
+      color: "bg-purple-600",
+      features: ["Team Chat", "Video Calls", "Document Sharing", "Notifications"],
+      route: "/coms"
     },
     {
       id: "crm",
@@ -91,6 +63,24 @@ const Index = () => {
       color: "bg-orange-600",
       features: ["Employee Records", "Payroll", "Attendance", "Performance"],
       route: "/hrms"
+    },
+    {
+      id: "qms",
+      title: "Q/BQQ",
+      description: "Quality & Bill of Quantities",
+      icon: FileText,
+      color: "bg-teal-600",
+      features: ["Quality Control", "Bill Generation", "Cost Estimation", "Standards"],
+      route: "/quality-bqq"
+    },
+    {
+      id: "dms",
+      title: "DMS",
+      description: "Document Management System",
+      icon: FileText,
+      color: "bg-indigo-600",
+      features: ["File Storage", "Version Control", "Access Rights", "Search"],
+      route: "/dms"
     },
     {
       id: "proms",
@@ -118,8 +108,16 @@ const Index = () => {
       color: "bg-gray-600",
       features: ["Task Assignment", "Progress Tracking", "Deadlines", "Collaboration"],
       route: "/task-management"
-    }, 
- 
+    },
+    {
+      id: "sms",
+      title: "SMS",
+      description: "Sales Management System",
+      icon: TrendingUp,
+      color: "bg-pink-600",
+      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
+      route: "/sales"
+    },
     {
       id: "rms",
       title: "RMS",
@@ -129,15 +127,14 @@ const Index = () => {
       features: ["Resource Allocation", "Capacity Planning", "Utilization Reports", "Optimization"],
       route: "/resource-management"
     },
-   
-     {
-      id: "coms",
-      title: "CoMS",
-      description: "Communication Management",
-      icon: Users,
-      color: "bg-purple-600",
-      features: ["Team Chat", "Video Calls", "Document Sharing", "Notifications"],
-      route: "/coms"
+    {
+      id: "estimation",
+      title: "Estimation",
+      description: "Cost Estimation Module",
+      icon: Calculator,
+      color: "bg-emerald-600",
+      features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
+      route: "/estimation"
     }
   ];
 
@@ -177,7 +174,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <div className="text-xl font-bold text-blue-400">Company Name</div>
+              <div className="text-xl font-bold text-blue-400">Enterprise Suite</div>
             </div>
             <nav className="hidden md:flex space-x-8">
               {navigationItems.map((item) => (
@@ -212,8 +209,8 @@ const Index = () => {
               <Badge variant="secondary" className="bg-blue-600 text-white">
                 Consumption Request
               </Badge>
-              <Badge variant="secondary" className="bg-red-600 text-white">
-               logout
+              <Badge variant="secondary" className="bg-green-600 text-white">
+                Estimation
               </Badge>
             </div>
           </div>
@@ -225,7 +222,7 @@ const Index = () => {
         {/* Welcome Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-800 mb-4">
-            Welcome! Admin
+            Welcome! Estimation
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Comprehensive Enterprise Management Platform - Streamline your business operations with our integrated suite of management tools
