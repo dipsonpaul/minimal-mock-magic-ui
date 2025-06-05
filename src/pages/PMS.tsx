@@ -54,7 +54,13 @@ const tasks = [
   { id: 3, title: "Flooring Installation", assignee: "Carol Davis", status: "Pending", priority: "Low" },
   { id: 4, title: "Client Design Review", assignee: "David Wilson", status: "In Progress", priority: "High" }
 ];
-
+const milestones = [
+  { date: "2025-06-01", title: "Initial Consultation", status: "completed" },
+  { date: "2025-06-15", title: "Site Measurements & Style Planning", status: "completed" },
+  { date: "2025-07-01", title: "Design Development", status: "current" },
+  { date: "2025-07-30", title: "Procurement & Contractor Coordination", status: "upcoming" },
+  { date: "2025-08-15", title: "Installation & Styling", status: "upcoming" }
+];
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -204,13 +210,7 @@ const tasks = [
             </Card>
           </div>
         )}
-const milestones = [
-  { date: "2025-06-01", title: "Initial Consultation", status: "completed" },
-  { date: "2025-06-15", title: "Site Measurements & Style Planning", status: "completed" },
-  { date: "2025-07-01", title: "Design Development", status: "current" },
-  { date: "2025-07-30", title: "Procurement & Contractor Coordination", status: "upcoming" },
-  { date: "2025-08-15", title: "Installation & Styling", status: "upcoming" }
-];
+
 
         {activeTab === "timeline" && (
           <div className="space-y-6">
