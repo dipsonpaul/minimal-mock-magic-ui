@@ -209,8 +209,8 @@ const Index = () => {
               <Badge variant="secondary" className="bg-blue-600 text-white">
                 Consumption Request
               </Badge>
-              <Badge variant="secondary" className="bg-green-600 text-white">
-                Estimation
+              <Badge variant="secondary" className="bg-red-600 text-white">
+               logout
               </Badge>
             </div>
           </div>
