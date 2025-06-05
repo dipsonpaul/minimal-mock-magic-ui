@@ -73,7 +73,17 @@ const Index = () => {
       color: "bg-indigo-600",
       features: ["File Storage", "Version Control", "Access Rights", "Search"],
       route: "/dms"
-    },   {
+    },
+    {
+      id: "crm",
+      title: "CRM",
+      description: "Customer Relationship Management",
+      icon: UserCheck,
+      color: "bg-green-600",
+      features: ["Lead Management", "Customer Database", "Sales Pipeline", "Analytics"],
+      route: "/crm"
+    },
+    {
       id: "hrms",
       title: "HRMS",
       description: "Human Resource Management",
@@ -108,15 +118,7 @@ const Index = () => {
       color: "bg-gray-600",
       features: ["Task Assignment", "Progress Tracking", "Deadlines", "Collaboration"],
       route: "/task-management"
-    }, {
-      id: "crm",
-      title: "CRM",
-      description: "Customer Relationship Management",
-      icon: UserCheck,
-      color: "bg-green-600",
-      features: ["Lead Management", "Customer Database", "Sales Pipeline", "Analytics"],
-      route: "/crm"
-    },
+    }, 
  
     {
       id: "rms",
