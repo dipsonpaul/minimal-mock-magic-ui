@@ -22,8 +22,8 @@ const HRMS = () => {
     {
       id: 1,
       name: "Alice Johnson",
-      position: "Senior Developer",
-      department: "Engineering",
+      position: "Lead Interior Designer",
+      department: "Design",
       salary: "$95,000",
       startDate: "2022-03-15",
       status: "Active",
@@ -32,7 +32,7 @@ const HRMS = () => {
     {
       id: 2,
       name: "Bob Smith",
-      position: "Project Manager",
+      position: "Project Coordinator",
       department: "Project Management",
       salary: "$85,000",
       startDate: "2021-08-10",
@@ -42,7 +42,7 @@ const HRMS = () => {
     {
       id: 3,
       name: "Carol Davis",
-      position: "UX Designer",
+      position: "Junior Designer",
       department: "Design",
       salary: "$75,000",
       startDate: "2023-01-20",
