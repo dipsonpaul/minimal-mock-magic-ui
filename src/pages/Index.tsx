@@ -35,6 +35,22 @@ const Index = () => {
       color: "bg-blue-600",
       features: ["Project Tracking", "Task Management", "Timeline View", "Resource Allocation"],
       route: "/pms"
+    }, {
+      id: "sms",
+      title: "SMS",
+      description: "Sales Management System",
+      icon: TrendingUp,
+      color: "bg-pink-600",
+      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
+      route: "/sales"
+    },  {
+      id: "estimation",
+      title: "Estimation",
+      description: "Cost Estimation Module",
+      icon: Calculator,
+      color: "bg-emerald-600",
+      features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
+      route: "/estimation"
     },
     {
       id: "coms",
@@ -108,15 +124,7 @@ const Index = () => {
       features: ["Task Assignment", "Progress Tracking", "Deadlines", "Collaboration"],
       route: "/task-management"
     },
-    {
-      id: "sms",
-      title: "SMS",
-      description: "Sales Management System",
-      icon: TrendingUp,
-      color: "bg-pink-600",
-      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
-      route: "/sales"
-    },
+   
     {
       id: "rms",
       title: "RMS",
@@ -126,15 +134,7 @@ const Index = () => {
       features: ["Resource Allocation", "Capacity Planning", "Utilization Reports", "Optimization"],
       route: "/resource-management"
     },
-    {
-      id: "estimation",
-      title: "Estimation",
-      description: "Cost Estimation Module",
-      icon: Calculator,
-      color: "bg-emerald-600",
-      features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
-      route: "/estimation"
-    }
+  
   ];
 
   const navigationItems = [
