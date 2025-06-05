@@ -46,16 +46,16 @@ const Index = () => {
       features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
       route: "/estimation"
     },
-   
-    {
-      id: "hrms",
-      title: "HRMS",
-      description: "Human Resource Management",
-      icon: Users,
-      color: "bg-orange-600",
-      features: ["Employee Records", "Payroll", "Attendance", "Performance"],
-      route: "/hrms"
+      {
+      id: "sms",
+      title: "SMS",
+      description: "Sales Management System",
+      icon: TrendingUp,
+      color: "bg-pink-600",
+      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
+      route: "/sales"
     },
+ 
     {
       id: "qms",
       title: "Q/BQQ",
@@ -73,6 +73,14 @@ const Index = () => {
       color: "bg-indigo-600",
       features: ["File Storage", "Version Control", "Access Rights", "Search"],
       route: "/dms"
+    },   {
+      id: "hrms",
+      title: "HRMS",
+      description: "Human Resource Management",
+      icon: Users,
+      color: "bg-orange-600",
+      features: ["Employee Records", "Payroll", "Attendance", "Performance"],
+      route: "/hrms"
     },
     {
       id: "proms",
@@ -109,15 +117,7 @@ const Index = () => {
       features: ["Lead Management", "Customer Database", "Sales Pipeline", "Analytics"],
       route: "/crm"
     },
-    {
-      id: "sms",
-      title: "SMS",
-      description: "Sales Management System",
-      icon: TrendingUp,
-      color: "bg-pink-600",
-      features: ["Sales Tracking", "Revenue Analytics", "Customer Insights", "Forecasting"],
-      route: "/sales"
-    },
+ 
     {
       id: "rms",
       title: "RMS",
