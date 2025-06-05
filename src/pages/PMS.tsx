@@ -49,11 +49,13 @@ const PMS = () => {
   ];
 
   const tasks = [
-    { id: 1, title: "Design Homepage ", assignee: "Alice Johnson", status: "In Progress", priority: "High" },
-    { id: 2, title: "Setup Environment", assignee: "Bob Smith", status: "Completed", priority: "Medium" },
-    { id: 3, title: "setting cement", assignee: "Carol Davis", status: "Pending", priority: "Low" },
-    { id: 4, title: "Review Session", assignee: "David Wilson", status: "In Progress", priority: "High" }
-  ];
+[
+  { "id": 1, "title": "Create Mood Board", "assignee": "Alice Johnson", "status": "In Progress", "priority": "High" },
+  { "id": 2, "title": "Site Prep & Measurements", "assignee": "Bob Smith", "status": "Completed", "priority": "Medium" },
+  { "id": 3, "title": "Flooring Installation", "assignee": "Carol Davis", "status": "Pending", "priority": "Low" },
+  { "id": 4, "title": "Client Design Review", "assignee": "David Wilson", "status": "In Progress", "priority": "High" }
+]
+];
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -214,11 +216,14 @@ const PMS = () => {
               <CardContent>
                 <div className="space-y-6">
                   {[
-                    { date: "2025-06-01", title: "Project Kickoff", status: "completed" },
-                    { date: "2025-06-15", title: "Requirements Gathering", status: "completed" },
-                    { date: "2025-07-01", title: "Development Phase", status: "current" },
-                    { date: "2025-07-30", title: "Testing Phase", status: "upcoming" },
-                    { date: "2025-08-15", title: "Deployment", status: "upcoming" }
+              [
+  { "date": "2025-06-01", "title": "Initial Consultation", "status": "completed" },
+  { "date": "2025-06-15", "title": "Site Measurements & Style Planning", "status": "completed" },
+  { "date": "2025-07-01", "title": "Design Development", "status": "current" },
+  { "date": "2025-07-30", "title": "Procurement & Contractor Coordination", "status": "upcoming" },
+  { "date": "2025-08-15", "title": "Installation & Styling", "status": "upcoming" }
+]
+
                   ].map((milestone, index) => (
                     <div key={index} className="flex items-center space-x-4">
                       <div className={`w-4 h-4 rounded-full ${
