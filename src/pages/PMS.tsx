@@ -204,6 +204,13 @@ const tasks = [
             </Card>
           </div>
         )}
+const milestones = [
+  { date: "2025-06-01", title: "Initial Consultation", status: "completed" },
+  { date: "2025-06-15", title: "Site Measurements & Style Planning", status: "completed" },
+  { date: "2025-07-01", title: "Design Development", status: "current" },
+  { date: "2025-07-30", title: "Procurement & Contractor Coordination", status: "upcoming" },
+  { date: "2025-08-15", title: "Installation & Styling", status: "upcoming" }
+];
 
         {activeTab === "timeline" && (
           <div className="space-y-6">
@@ -212,31 +219,28 @@ const tasks = [
                 <CardTitle>Project Timeline</CardTitle>
                 <CardDescription>Visual timeline of project milestones</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  {[
-              [
-  { "date": "2025-06-01", "title": "Initial Consultation", "status": "completed" },
-  { "date": "2025-06-15", "title": "Site Measurements & Style Planning", "status": "completed" },
-  { "date": "2025-07-01", "title": "Design Development", "status": "current" },
-  { "date": "2025-07-30", "title": "Procurement & Contractor Coordination", "status": "upcoming" },
-  { "date": "2025-08-15", "title": "Installation & Styling", "status": "upcoming" }
-]
+             <CardContent>
+  <div className="space-y-6">
+    {milestones.map((milestone, index) => (
+      <div key={index} className="flex items-center space-x-4">
+        <div
+          className={`w-4 h-4 rounded-full ${
+            milestone.status === "completed"
+              ? "bg-green-500"
+              : milestone.status === "current"
+              ? "bg-blue-500"
+              : "bg-gray-300"
+          }`}
+        ></div>
+        <div className="flex-1">
+          <h4 className="font-medium">{milestone.title}</h4>
+          <p className="text-sm text-gray-600">{milestone.date}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</CardContent>
 
-                  ].map((milestone, index) => (
-                    <div key={index} className="flex items-center space-x-4">
-                      <div className={`w-4 h-4 rounded-full ${
-                        milestone.status === "completed" ? "bg-green-500" :
-                        milestone.status === "current" ? "bg-blue-500" : "bg-gray-300"
-                      }`}></div>
-                      <div className="flex-1">
-                        <h4 className="font-medium">{milestone.title}</h4>
-                        <p className="text-sm text-gray-600">{milestone.date}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
             </Card>
           </div>
         )}
