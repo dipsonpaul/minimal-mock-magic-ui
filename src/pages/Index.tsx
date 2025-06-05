@@ -29,7 +29,7 @@ const Index = () => {
   const modules = [
     {
       id: "hm",
-      title: "HM",
+      title: "PMS",
       description: "Project Management System",
       icon: ClipboardList,
       color: "bg-blue-600",
