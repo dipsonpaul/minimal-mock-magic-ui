@@ -21,7 +21,7 @@ const PMS = () => {
   const projects = [
     {
       id: 1,
-      name: "Website Redesign",
+      name: "Painting",
       status: "In Progress",
       progress: 65,
       deadline: "2025-07-15",
@@ -30,7 +30,7 @@ const PMS = () => {
     },
     {
       id: 2,
-      name: "Mobile App Development",
+      name: "Intertior works",
       status: "Planning",
       progress: 20,
       deadline: "2025-08-30",
@@ -39,7 +39,7 @@ const PMS = () => {
     },
     {
       id: 3,
-      name: "Database Migration",
+      name: "titling",
       status: "Completed",
       progress: 100,
       deadline: "2025-06-01",
@@ -49,10 +49,10 @@ const PMS = () => {
   ];
 
   const tasks = [
-    { id: 1, title: "Design Homepage Mockup", assignee: "Alice Johnson", status: "In Progress", priority: "High" },
-    { id: 2, title: "Setup Development Environment", assignee: "Bob Smith", status: "Completed", priority: "Medium" },
-    { id: 3, title: "Write API Documentation", assignee: "Carol Davis", status: "Pending", priority: "Low" },
-    { id: 4, title: "Code Review Session", assignee: "David Wilson", status: "In Progress", priority: "High" }
+    { id: 1, title: "Design Homepage ", assignee: "Alice Johnson", status: "In Progress", priority: "High" },
+    { id: 2, title: "Setup Environment", assignee: "Bob Smith", status: "Completed", priority: "Medium" },
+    { id: 3, title: "setting cement", assignee: "Carol Davis", status: "Pending", priority: "Low" },
+    { id: 4, title: "Review Session", assignee: "David Wilson", status: "In Progress", priority: "High" }
   ];
 
   const getStatusColor = (status: string) => {
