@@ -20,39 +20,38 @@ const TaskManagement = () => {
   const [activeTab, setActiveTab] = useState("tasks");
   const [editingId, setEditingId] = useState<number | null>(null);
 
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Design Homepage Layout",
-      description: "Create wireframes and mockups for the new homepage",
-      assignee: "John Smith",
-      priority: "High",
-      status: "In Progress",
-      dueDate: "2024-05-25",
-      project: "Website Redesign"
-    },
-    {
-      id: 2,
-      title: "Database Optimization",
-      description: "Optimize database queries for better performance",
-      assignee: "Sarah Johnson",
-      priority: "Medium",
-      status: "Pending",
-      dueDate: "2024-05-30",
-      project: "Backend Improvements"
-    },
-    {
-      id: 3,
-      title: "User Testing",
-      description: "Conduct user testing sessions for new features",
-      assignee: "Mike Davis",
-      priority: "Low",
-      status: "Completed",
-      dueDate: "2024-05-20",
-      project: "UX Research"
-    }
-  ]);
-
+const [tasks, setTasks] = useState([
+  {
+    id: 1,
+    title: "Design Living Room Layout",
+    description: "Create layout sketches and mood boards for the living room",
+    assignee: "John Smith",
+    priority: "High",
+    status: "In Progress",
+    dueDate: "2024-05-25",
+    project: "Modern Apartment Renovation"
+  },
+  {
+    id: 2,
+    title: "Select Kitchen Materials",
+    description: "Choose cabinets, countertops, and backsplashes",
+    assignee: "Sarah Johnson",
+    priority: "Medium",
+    status: "Pending",
+    dueDate: "2024-05-30",
+    project: "Kitchen Remodel"
+  },
+  {
+    id: 3,
+    title: "Client Presentation",
+    description: "Present design concepts and material samples to the client",
+    assignee: "Mike Davis",
+    priority: "Low",
+    status: "Completed",
+    dueDate: "2024-05-20",
+    project: "Beach House Interior"
+  }
+]);
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Completed": return "bg-green-100 text-green-800";
