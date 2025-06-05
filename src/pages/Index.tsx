@@ -222,7 +222,7 @@ const Index = () => {
         {/* Welcome Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-800 mb-4">
-            Welcome! Estimation
+            Welcome! Admin
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Comprehensive Enterprise Management Platform - Streamline your business operations with our integrated suite of management tools
