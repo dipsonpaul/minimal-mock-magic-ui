@@ -48,14 +48,13 @@ const PMS = () => {
     }
   ];
 
-  const tasks = [
-[
-  { "id": 1, "title": "Create Mood Board", "assignee": "Alice Johnson", "status": "In Progress", "priority": "High" },
-  { "id": 2, "title": "Site Prep & Measurements", "assignee": "Bob Smith", "status": "Completed", "priority": "Medium" },
-  { "id": 3, "title": "Flooring Installation", "assignee": "Carol Davis", "status": "Pending", "priority": "Low" },
-  { "id": 4, "title": "Client Design Review", "assignee": "David Wilson", "status": "In Progress", "priority": "High" }
-]
+const tasks = [
+  { id: 1, title: "Create Mood Board", assignee: "Alice Johnson", status: "In Progress", priority: "High" },
+  { id: 2, title: "Site Prep & Measurements", assignee: "Bob Smith", status: "Completed", priority: "Medium" },
+  { id: 3, title: "Flooring Installation", assignee: "Carol Davis", status: "Pending", priority: "Low" },
+  { id: 4, title: "Client Design Review", assignee: "David Wilson", status: "In Progress", priority: "High" }
 ];
+
 
   const getStatusColor = (status: string) => {
     switch (status) {
