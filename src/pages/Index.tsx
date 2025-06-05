@@ -28,8 +28,8 @@ const Index = () => {
 
   const modules = [
     {
-      id: "pms",
-      title: "PMS",
+      id: "hm",
+      title: "HM",
       description: "Project Management System",
       icon: ClipboardList,
       color: "bg-blue-600",
@@ -155,7 +155,7 @@ const Index = () => {
       name: "MODULES", 
       isDropdown: true, 
       items: [
-        { name: "PMS", route: "/pms" },
+        { name: "HM", route: "/pms" },
         { name: "CRM", route: "/crm" },
         { name: "HRMS", route: "/hrms" },
         { name: "Q/BQQ", route: "/quality-bqq" },
@@ -177,7 +177,7 @@ const Index = () => {
       <header className="bg-slate-900 text-white shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x Thoreau-4">
               <div className="text-xl font-bold text-blue-400">Company name</div>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -233,177 +233,62 @@ const Index = () => {
           </p>
         </div>
 
-        {/* Project 1 Section (PMS) */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-slate-800 mb-6">Project 1: Management Dashboard</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {modules.filter(module => module.id === "pms").map((module) => {
-              const IconComponent = module.icon;
-              return (
-                <Card 
-                  key={module.id}
-                  className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border-0 shadow-md"
-                  onMouseEnter={() => setActiveModule(module.id)}
-                  onMouseLeave={() => setActiveModule(null)}
-                >
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between">
-                      <div className={`p-3 rounded-lg ${module.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                      <Badge variant="outline" className="text-xs">
-                        Active
-                      </Badge>
+        {/* Module Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+          {modules.map((module) => {
+            const IconComponent = module.icon;
+            return (
+              <Card 
+                key={module.id}
+                className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border-0 shadow-md"
+                onMouseEnter={() => setActiveModule(module.id)}
+                onMouseLeave={() => setActiveModule(null)}
+              >
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between">
+                    <div className={`p-3 rounded-lg ${module.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className="h-6 w-6" />
                     </div>
-                    <CardTitle className="text-lg font-bold text-slate-800">
-                      {module.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-slate-600">
-                      {module.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {module.features.map((feature, index) => (
-                        <div 
-                          key={index}
-                          className="flex items-center text-sm text-slate-600"
-                        >
-                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                    <Link to={module.route}>
-                      <Button 
-                        className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
-                        size="sm"
+                    <Badge variant="outline" className="text-xs">
+                      Active
+                    </Badge>
+                  </div>
+                  <CardTitle className="text-lg font-bold text-slate-800">
+                    {module.title}
+                  </CardTitle>
+                  <CardDescription className="text-sm text-slate-600">
+                    {module.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    {module.features.map((feature, index) => (
+                      <div 
+                        key={index}
+                        className="flex items-center text-sm text-slate-600"
                       >
-                        Launch {module.title}
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Sales Management 1 Section (SMS) */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-slate-800 mb-6">Sales Management 1: Performance Overview</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {modules.filter(module => module.id === "sms").map((module) => {
-              const IconComponent = module.icon;
-              return (
-                <Card 
-                  key={module.id}
-                  className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border-0 shadow-md"
-                  onMouseEnter={() => setActiveModule(module.id)}
-                  onMouseLeave={() => setActiveModule(null)}
-                >
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between">
-                      <div className={`p-3 rounded-lg ${module.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className="h-6 w-6" />
+                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
+                        {feature}
                       </div>
-                      <Badge variant="outline" className="text-xs">
-                        Active
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-lg font-bold text-slate-800">
-                      {module.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-slate-600">
-                      {module.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {module.features.map((feature, index) => (
-                        <div 
-                          key={index}
-                          className="flex items-center text-sm text-slate-600"
-                        >
-                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                    <Link to={module.route}>
-                      <Button 
-                        className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
-                        size="sm"
-                      >
-                        Launch {module.title}
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
+                    ))}
+                  </div>
+                  <Link to={module.route}>
+                    <Button 
+                      className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
+                      size="sm"
+                    >
+                      Launch {module.title}
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
 
-        {/* Other Modules Section */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-slate-800 mb-6">Core Business Modules</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {modules.filter(module => !["pms", "sms"].includes(module.id)).map((module) => {
-              const IconComponent = module.icon;
-              return (
-                <Card 
-                  key={module.id}
-                  className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border-0 shadow-md"
-                  onMouseEnter={() => setActiveModule(module.id)}
-                  onMouseLeave={() => setActiveModule(null)}
-                >
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between">
-                      <div className={`p-3 rounded-lg ${module.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                      <Badge variant="outline" className="text-xs">
-                        Active
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-lg font-bold text-slate-800">
-                      {module.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-slate-600">
-                      {module.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {module.features.map((feature, index) => (
-                        <div 
-                          key={index}
-                          className="flex items-center text-sm text-slate-600"
-                        >
-                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                    <Link to={module.route}>
-                      <Button 
-                        className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
-                        size="sm"
-                      >
-                        Launch {module.title}
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Quick Actions Section */}
-        <section className="bg-white rounded-lg shadow-lg p-6 mb-12">
-          <h2 className="text-2xl font-bold text-slate-800 mb-6">Quick Actions Hub</h2>
+        {/* Quick Actions */}
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 className="text-2xl font-bold text-slate-800 mb-6">Quick Actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { title: "New Project", description: "Start a new project", color: "bg-blue-500", route: "/pms" },
@@ -423,11 +308,11 @@ const Index = () => {
               </Link>
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Recent Activity Section */}
-        <section className="bg-white rounded-lg shadow-lg p-6 mb-12">
-          <h2 className="text-2xl font-bold text-slate-800 mb-6">Recent Activity Log</h2>
+        {/* Recent Activity */}
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h2 className="text-2xl font-bold text-slate-800 mb-6">Recent Activity</h2>
           <div className="space-y-4">
             {[
               { action: "Project Alpha started", time: "2 hours ago", type: "project" },
@@ -444,7 +329,7 @@ const Index = () => {
               </div>
             ))}
           </div>
-        </section>
+        </div>
       </main>
 
       {/* Footer */}
