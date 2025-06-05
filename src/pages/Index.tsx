@@ -51,6 +51,14 @@ const Index = () => {
       color: "bg-emerald-600",
       features: ["Cost Calculation", "Quote Generation", "Price Analysis", "Budget Planning"],
       route: "/estimation"
+    },    {
+      id: "qms",
+      title: "Q/BQQ",
+      description: "Quality & Bill of Quantities",
+      icon: FileText,
+      color: "bg-teal-600",
+      features: ["Quality Control", "Bill Generation", "Cost Estimation", "Standards"],
+      route: "/quality-bqq"
     },
     {
       id: "coms",
@@ -79,15 +87,7 @@ const Index = () => {
       features: ["Employee Records", "Payroll", "Attendance", "Performance"],
       route: "/hrms"
     },
-    {
-      id: "qms",
-      title: "Q/BQQ",
-      description: "Quality & Bill of Quantities",
-      icon: FileText,
-      color: "bg-teal-600",
-      features: ["Quality Control", "Bill Generation", "Cost Estimation", "Standards"],
-      route: "/quality-bqq"
-    },
+
     {
       id: "dms",
       title: "DMS",
