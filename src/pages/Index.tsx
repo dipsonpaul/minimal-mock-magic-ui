@@ -133,7 +133,7 @@ const Index = () => {
       color: "bg-cyan-600",
       features: ["Resource Allocation", "Capacity Planning", "Utilization Reports", "Optimization"],
       route: "/resource-management"
-    },
+    }
   
   ];
 
