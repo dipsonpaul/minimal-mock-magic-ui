@@ -18,6 +18,7 @@ import TaskManagement from "./pages/TaskManagement";
 import SalesManagement from "./pages/SalesManagement";
 import ResourceManagement from "./pages/ResourceManagement";
 import Estimation from "./pages/Estimation";
+import EmployeeDetail from "./pages/EmployeeDetail";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/sales" element={<SalesManagement />} />
           <Route path="/resource-management" element={<ResourceManagement />} />
           <Route path="/estimation" element={<Estimation />} />
+          <Route path="/employee/:id" element={<EmployeeDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
