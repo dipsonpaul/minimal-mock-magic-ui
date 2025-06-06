@@ -17,35 +17,35 @@ import { Link } from "react-router-dom";
 const ResourceManagement = () => {
   const [activeTab, setActiveTab] = useState("allocation");
 
-  const resources = [
-    {
-      id: 1,
-      name: "John Smith",
-      role: "Senior Developer",
-      currentProject: "Website Redesign",
-      utilization: 85,
-      availability: "Partial",
-      skills: ["React", "Node.js", "MongoDB"]
-    },
-    {
-      id: 2,
-      name: "Sarah Johnson",
-      role: "UI/UX Designer",
-      currentProject: "Mobile App",
-      utilization: 90,
-      availability: "Busy",
-      skills: ["Figma", "Adobe XD", "Prototyping"]
-    },
-    {
-      id: 3,
-      name: "Mike Davis",
-      role: "Project Manager",
-      currentProject: "Cloud Migration",
-      utilization: 70,
-      availability: "Available",
-      skills: ["Agile", "Scrum", "Leadership"]
-    }
-  ];
+ const resources = [
+  {
+    id: 1,
+    name: "John Smith",
+    role: "Senior Interior Designer",
+    currentProject: "Luxury Apartment Renovation",
+    utilization: 85,
+    availability: "Partial",
+    skills: ["Space Planning", "3D Rendering", "AutoCAD"]
+  },
+  {
+    id: 2,
+    name: "Sarah Johnson",
+    role: "Lighting Designer",
+    currentProject: "Modern Office Setup",
+    utilization: 90,
+    availability: "Busy",
+    skills: ["Lighting Layouts", "DIALux", "Ambient Design"]
+  },
+  {
+    id: 3,
+    name: "Mike Davis",
+    role: "Project Manager",
+    currentProject: "Hotel Lobby Redesign",
+    utilization: 70,
+    availability: "Available",
+    skills: ["Client Coordination", "Budgeting", "Timeline Management"]
+  }
+];
 
   const getAvailabilityColor = (availability: string) => {
     switch (availability) {
