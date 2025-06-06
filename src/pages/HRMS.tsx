@@ -174,9 +174,11 @@ const HRMS = () => {
                         <Badge className={getPerformanceColor(employee.performance)}>
                           {employee.performance}
                         </Badge>
-                        <Button variant="outline" size="sm">
-                          View Profile
-                        </Button>
+                          <Link to={`/employee/${employee.id}`}>
+                            <Button variant="outline" size="sm">
+                              View Profile
+                            </Button>
+                          </Link>    
                       </div>
                     </div>
                   </CardContent>
