@@ -250,21 +250,28 @@ const ResourceManagement = () => {
                 </div>
               </CardContent>
             </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Skills Distribution</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {["Frontend Development", "Backend Development", "Design", "Project Management", "DevOps"].map((skill, index) => (
-                    <div key={index} className="flex justify-between">
-                      <span>{skill}:</span>
-                      <span className="font-bold">{Math.floor(Math.random() * 10) + 1} people</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+<Card>
+  <CardHeader>
+    <CardTitle>Skills Distribution</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div className="space-y-3">
+      {[
+        "Space Planning",
+        "Lighting Design",
+        "3D Rendering",
+        "Furniture Selection",
+        "Project Management"
+      ].map((skill, index) => (
+        <div key={index} className="flex justify-between">
+          <span>{skill}:</span>
+          <span className="font-bold">{Math.floor(Math.random() * 10) + 1} people</span>
+        </div>
+      ))}
+    </div>
+  </CardContent>
+</Card>
+
           </div>
         )}
       </main>
