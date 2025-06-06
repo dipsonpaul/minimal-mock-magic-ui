@@ -7,6 +7,8 @@ import { ArrowLeft, Users, Calendar, DollarSign, Award, Mail, Phone } from "luci
 const EmployeeDetail = () => {
   const { id } = useParams();
 
+  const DEFAULT_PROFILE_PIC = "https://via.placeholder.com/150?text=Default+Avatar";
+
   const employees = [
     {
       id: 1,
@@ -20,6 +22,7 @@ const EmployeeDetail = () => {
       email: "alice.johnson@example.com",
       phone: "+1 (555) 123-4567",
       address: "123 Design St, Creative City, CC 90210",
+      profilePic: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
       recentActivities: [
         { date: "2025-06-01", activity: "Completed project design for Client X" },
         { date: "2025-05-28", activity: "Led team meeting on new design trends" },
@@ -37,6 +40,7 @@ const EmployeeDetail = () => {
       email: "bob.smith@example.com",
       phone: "+1 (555) 234-5678",
       address: "456 Project Ave, Management Town, MT 90320",
+      profilePic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
       recentActivities: [
         { date: "2025-06-02", activity: "Coordinated project timeline for Client Y" },
         { date: "2025-05-30", activity: "Updated project management software" },
@@ -54,6 +58,7 @@ const EmployeeDetail = () => {
       email: "carol.davis@example.com",
       phone: "+1 (555) 345-6789",
       address: "789 Art Rd, Designville, DV 90430",
+      profilePic: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
       recentActivities: [
         { date: "2025-06-01", activity: "Submitted initial sketches for Client Z" },
         { date: "2025-05-29", activity: "Attended design workshop" },
@@ -139,62 +144,76 @@ const EmployeeDetail = () => {
               <CardDescription>Details about {employee.name}</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <Users className="h-5 w-5 mr-2 text-gray-500" />
-                      <span className="font-medium">Position:</span>
-                      <span className="ml-2">{employee.position}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Users className="h-5 w-5 mr-2 text-gray-500" />
-                      <span className="font-medium">Department:</span>
-                      <span className="ml-2">{employee.department}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <DollarSign className="h-5 w-5 mr-2 text-gray-500" />
-                      <span className="font-medium">Salary:</span>
-                      <span className="ml-2">{employee.salary}</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <Calendar className="h-5 w-5 mr-2 text-gray-500" />
-                      <span className="font-medium">Start Date:</span>
-                      <span className="ml-2">{employee.startDate}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="font-medium">Status:</span>
-                      <Badge className={`ml-2 ${getStatusColor(employee.status)}`}>
-                        {employee.status}
-                      </Badge>
-                    </div>
-                    <div className="flex items-center">
-                      <Award className="h-5 w-5 mr-2 text-gray-500" />
-                      <span className="font-medium">Performance:</span>
-                      <Badge className={`ml-2 ${getPerformanceColor(employee.performance)}`}>
-                        {employee.performance}
-                      </Badge>
-                    </div>
-                  </div>
+              <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
+                {/* Profile Picture */}
+                <div className="flex-shrink-0">
+                  <img
+                    src={employee.profilePic || DEFAULT_PROFILE_PIC}
+                    alt={`${employee.name}'s profile`}
+                    className="w-32 h-32 rounded-full object-cover border-2 border-gray-200"
+                    onError={(e) => {
+                      e.target.src = DEFAULT_PROFILE_PIC;
+                    }}
+                  />
                 </div>
-                <div className="border-t pt-4">
-                  <h3 className="font-semibold text-lg mb-2">Contact Information</h3>
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <Mail className="h-5 w-5 mr-2 text-gray-500" />
-                      <span className="font-medium">Email:</span>
-                      <span className="ml-2">{employee.email}</span>
+                {/* Employee Details */}
+                <div className="flex-1 space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <Users className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">Position:</span>
+                        <span className="ml-2">{employee.position}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Users className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">Department:</span>
+                        <span className="ml-2">{employee.department}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <DollarSign className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">Salary:</span>
+                        <span className="ml-2">{employee.salary}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <Phone className="h-5 w-5 mr-2 text-gray-500" />
-                      <span className="font-medium">Phone:</span>
-                      <span className="ml-2">{employee.phone}</span>
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <Calendar className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">Start Date:</span>
+                        <span className="ml-2">{employee.startDate}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="font-medium">Status:</span>
+                        <Badge className={`ml-2 ${getStatusColor(employee.status)}`}>
+                          {employee.status}
+                        </Badge>
+                      </div>
+                      <div className="flex items-center">
+                        <Award className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">Performance:</span>
+                        <Badge className={`ml-2 ${getPerformanceColor(employee.performance)}`}>
+                          {employee.performance}
+                        </Badge>
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <span className="font-medium">Address:</span>
-                      <span className="ml-2">{employee.address}</span>
+                  </div>
+                  <div className="border-t pt-4">
+                    <h3 className="font-semibold text-lg mb-2">Contact Information</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <Mail className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">Email:</span>
+                        <span className="ml-2">{employee.email}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Phone className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">Phone:</span>
+                        <span className="ml-2">{employee.phone}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="font-medium">Address:</span>
+                        <span className="ml-2">{employee.address}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
