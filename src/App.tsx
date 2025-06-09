@@ -20,6 +20,30 @@ import ResourceManagement from "./pages/ResourceManagement";
 import Estimation from "./pages/Estimation";
 import EmployeeDetails from "./pages/EmployeeDetails";
 
+// Import all report pages
+import AgeingReport from "./pages/reports/AgeingReport";
+import BankTransactionReport from "./pages/reports/BankTransactionReport";
+import BulkVendorPayment from "./pages/reports/BulkVendorPayment";
+import BuyerReport from "./pages/reports/BuyerReport";
+import CashbalanceReport from "./pages/reports/CashbalanceReport";
+import DailyExpense from "./pages/reports/DailyExpense";
+import DailyExpenseReport from "./pages/reports/DailyExpenseReport";
+import DailyFinancialReport from "./pages/reports/DailyFinancialReport";
+import DailyFinancialSummaryReport from "./pages/reports/DailyFinancialSummaryReport";
+import DayBookTransactions from "./pages/reports/DayBookTransactions";
+import Daybook from "./pages/reports/Daybook";
+import ExportData from "./pages/reports/ExportData";
+import FinancialReports from "./pages/reports/FinancialReports";
+import LabourReport from "./pages/reports/LabourReport";
+import MaterialConsumptionReport from "./pages/reports/MaterialConsumptionReport";
+import NewProjects from "./pages/reports/NewProjects";
+import PLReport from "./pages/reports/PLReport";
+import PendingBills from "./pages/reports/PendingBills";
+import PettyCashReport from "./pages/reports/PettyCashReport";
+import ProjectPaymentReport from "./pages/reports/ProjectPaymentReport";
+import ProjectReport from "./pages/reports/ProjectReport";
+import PurchaseBillReport from "./pages/reports/PurchaseBillReport";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -43,6 +67,31 @@ const App = () => (
           <Route path="/resource-management" element={<ResourceManagement />} />
           <Route path="/estimation" element={<Estimation />} />
           <Route path="/employee/:id" element={<EmployeeDetails />} />
+          
+          {/* Report Routes */}
+          <Route path="/reports/ageing-report" element={<AgeingReport />} />
+          <Route path="/reports/bank-transaction-report" element={<BankTransactionReport />} />
+          <Route path="/reports/bulk-vendor-payment" element={<BulkVendorPayment />} />
+          <Route path="/reports/buyer-report" element={<BuyerReport />} />
+          <Route path="/reports/cashbalance-report" element={<CashbalanceReport />} />
+          <Route path="/reports/daily-expense" element={<DailyExpense />} />
+          <Route path="/reports/daily-expense-report" element={<DailyExpenseReport />} />
+          <Route path="/reports/daily-financial-report" element={<DailyFinancialReport />} />
+          <Route path="/reports/daily-financial-summary-report" element={<DailyFinancialSummaryReport />} />
+          <Route path="/reports/day-book-transactions" element={<DayBookTransactions />} />
+          <Route path="/reports/daybook" element={<Daybook />} />
+          <Route path="/reports/export-data" element={<ExportData />} />
+          <Route path="/reports/financial-reports" element={<FinancialReports />} />
+          <Route path="/reports/labour-report" element={<LabourReport />} />
+          <Route path="/reports/material-consumption-report" element={<MaterialConsumptionReport />} />
+          <Route path="/reports/new-projects" element={<NewProjects />} />
+          <Route path="/reports/pl-report" element={<PLReport />} />
+          <Route path="/reports/pending-bills" element={<PendingBills />} />
+          <Route path="/reports/petty-cash-report" element={<PettyCashReport />} />
+          <Route path="/reports/project-payment-report" element={<ProjectPaymentReport />} />
+          <Route path="/reports/project-report" element={<ProjectReport />} />
+          <Route path="/reports/purchase-bill-report" element={<PurchaseBillReport />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
