@@ -210,9 +210,7 @@ const Index = () => {
               ))}
             </nav>
             <div className="flex items-center space-x-4">
-              <Badge variant="secondary" className="bg-blue-600 text-white">
-                Consumption Request
-              </Badge>
+         
               <Badge variant="secondary" className="bg-red-600 text-white">
                 Logout
               </Badge>
