@@ -149,6 +149,7 @@ const Index = () => {
 
   const navigationItems = [
     { name: "HOME", route: "/" },
+    { name: "DASHBOARD", route: "/dashboard" },
     { name: "PURCHASE", route: "/procurement" },
     { name: "WAREHOUSE", route: "/inventory" },
     { name: "BUYER", route: "/procurement" },
