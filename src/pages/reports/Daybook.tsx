@@ -21,6 +21,12 @@ const Daybook = () => {
       vendor: 'Vendor 1',
       transactionType: 'Debit',
       amount: 5000.00,
+      sgst: '0.00',
+      cgst: '0.00',
+      igst: '0.00',
+      purchaseType: 'Cash',
+      paid: '5000.00',
+      tds: '0.00',
       description: 'Purchase of raw materials',
     },
     {
@@ -33,11 +39,17 @@ const Daybook = () => {
       vendor: 'Vendor 2',
       transactionType: 'Credit',
       amount: 3000.00,
+      sgst: '0.00',
+      cgst: '0.00',
+      igst: '0.00',
+      purchaseType: 'Credit',
+      paid: '0.00',
+      tds: '0.00',
       description: 'Labor charges',
     },
   ]);
 
-  // Form state
+  // Form state with all fields from the previous version
   const [formData, setFormData] = useState({
     date: '09-06-2025',
     company: '',
@@ -47,6 +59,12 @@ const Daybook = () => {
     vendor: '',
     transactionType: '',
     amount: '',
+    sgst: '',
+    cgst: '',
+    igst: '',
+    purchaseType: '',
+    paid: '',
+    tds: '',
     description: '',
   });
 
@@ -66,6 +84,12 @@ const Daybook = () => {
       vendor: '',
       transactionType: '',
       amount: '',
+      sgst: '',
+      cgst: '',
+      igst: '',
+      purchaseType: '',
+      paid: '',
+      tds: '',
       description: '',
     });
   };
@@ -95,6 +119,12 @@ const Daybook = () => {
       vendor: formData.vendor || 'Unknown',
       transactionType: formData.transactionType || 'Unknown',
       amount: parseFloat(formData.amount) || 0.00,
+      sgst: formData.sgst || '0.00',
+      cgst: formData.cgst || '0.00',
+      igst: formData.igst || '0.00',
+      purchaseType: formData.purchaseType || 'Unknown',
+      paid: formData.paid || '0.00',
+      tds: formData.tds || '0.00',
       description: formData.description || '',
     };
     setEntries([...entries, newEntry]);
@@ -137,61 +167,13 @@ const Daybook = () => {
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold text-gray-800">DAYBOOK ENTRIES</h1>
             <div className="flex space-x-2">
-              <Button className="bg-blue-600 hover:bg-blue-700" onClick={handleAddEntry}>Add Entries</Button>
+              <Button className="bg-blue-600 hover:bg-blue-700" onClick={handleAddEntry} disabled={showForm}>Add Entries</Button>
               <Button variant="outline">Close</Button>
             </div>
           </div>
 
-          {!showForm ? (
+          {showForm && (
             <Card className="mb-6">
-              <CardHeader>
-                <CardTitle>Existing Entries</CardTitle>
-              </CardHeader>
-              <CardContent>
-                {entries.length === 0 ? (
-                  <p className="text-sm text-gray-600">No entries found</p>
-                ) : (
-                  <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y divide-gray-200">
-                      <thead className="bg-gray-50">
-                        <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bill/Invoice No</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expense Head</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vendor</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transaction Type</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
-                        {entries.map((entry) => (
-                          <tr key={entry.id} className="hover:bg-blue-50">
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.date}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.company}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.project}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.billInvoice}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.expenseHead}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.vendor}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.transactionType}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{entry.amount.toFixed(2)}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                              <Button variant="ghost" size="sm" onClick={() => handleDelete(entry.id)}>
-                                <Trash className="h-4 w-4" />
-                              </Button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          ) : (
-            <Card>
               <CardHeader>
                 <div className="flex items-center space-x-2">
                   <Button variant="ghost" size="sm" onClick={handleCancel}>
@@ -202,6 +184,7 @@ const Daybook = () => {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Transaction Details */}
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div>
                       <Label htmlFor="date">Date</Label>
@@ -233,6 +216,7 @@ const Daybook = () => {
                         <SelectContent>
                           <SelectItem value="Project 1">Project 1</SelectItem>
                           <SelectItem value="Project 2">Project 2</SelectItem>
+                          <SelectItem value="Project 3">Project 3</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -245,6 +229,9 @@ const Daybook = () => {
                         <SelectContent>
                           <SelectItem value="Bill 001">Bill 001</SelectItem>
                           <SelectItem value="Bill 002">Bill 002</SelectItem>
+                          <SelectItem value="Bill 003">Bill 003</SelectItem>
+                          <SelectItem value="Bill 004">Bill 004</SelectItem>
+                          <SelectItem value="Bill 005">Bill 005</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -260,6 +247,9 @@ const Daybook = () => {
                         <SelectContent>
                           <SelectItem value="Materials">Materials</SelectItem>
                           <SelectItem value="Labor">Labor</SelectItem>
+                          <SelectItem value="Equipment">Equipment</SelectItem>
+                          <SelectItem value="Travel">Travel</SelectItem>
+                          <SelectItem value="Maintenance">Maintenance</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -272,6 +262,8 @@ const Daybook = () => {
                         <SelectContent>
                           <SelectItem value="Vendor 1">Vendor 1</SelectItem>
                           <SelectItem value="Vendor 2">Vendor 2</SelectItem>
+                          <SelectItem value="Vendor 3">Vendor 3</SelectItem>
+                          <SelectItem value="Vendor 4">Vendor 4</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -287,6 +279,10 @@ const Daybook = () => {
                         </SelectContent>
                       </Select>
                     </div>
+                  </div>
+
+                  {/* Amount Details */}
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div>
                       <Label htmlFor="amount">Amount</Label>
                       <Input
@@ -298,9 +294,42 @@ const Daybook = () => {
                         className="w-full"
                       />
                     </div>
+                    <div>
+                      <Label htmlFor="sgst">SGST(%)</Label>
+                      <Input id="sgst" value={formData.sgst} onChange={handleInputChange} placeholder="0.00" />
+                    </div>
+                    <div>
+                      <Label htmlFor="cgst">CGST(%)</Label>
+                      <Input id="cgst" value={formData.cgst} onChange={handleInputChange} placeholder="0.00" />
+                    </div>
+                    <div>
+                      <Label htmlFor="igst">IGST(%)</Label>
+                      <Input id="igst" value={formData.igst} onChange={handleInputChange} placeholder="0.00" />
+                    </div>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-4">
+                  {/* Payment Details */}
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                      <Label htmlFor="purchaseType">Purchase Type</Label>
+                      <Select onValueChange={(value) => handleSelectChange('purchaseType', value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select Purchase Type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Cash">Cash</SelectItem>
+                          <SelectItem value="Credit">Credit</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="paid">Paid / Receipt</Label>
+                      <Input id="paid" value={formData.paid} onChange={handleInputChange} placeholder="0.00" />
+                    </div>
+                    <div>
+                      <Label htmlFor="tds">TDS(%)</Label>
+                      <Input id="tds" value={formData.tds} onChange={handleInputChange} placeholder="0.00" />
+                    </div>
                     <div>
                       <Label htmlFor="description">Description</Label>
                       <Textarea
@@ -321,7 +350,71 @@ const Daybook = () => {
               </CardContent>
             </Card>
           )}
-        </div>
+
+          {/* Table (moves below the form when form is shown) */}
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle>Existing Entries</CardTitle>
+            </CardHeader>
+            <CardContent>
+              {entries.length === 0 ? (
+                <p className="text-sm text-gray-600">No entries found</p>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bill/Invoice No</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expense Head</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vendor</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transaction Type</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SGST</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CGST</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">IGST</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Purchase Type</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paid</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TDS</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {entries.map((entry) => (
+                        <tr key={entry.id} className="hover:bg-blue-50">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.date}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.company}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.project}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.billInvoice}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.expenseHead}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.vendor}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.transactionType}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{entry.amount.toFixed(2)}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.sgst}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.cgst}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.igst}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.purchaseType}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.paid}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.tds}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.description}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <Button variant="ghost" size="sm" onClick={() => handleDelete(entry.id)}>
+                              <Trash className="h-4 w-4" />
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+      </div>
+          
       </div>
     </div>
   );
