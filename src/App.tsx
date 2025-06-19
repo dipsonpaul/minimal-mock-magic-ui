@@ -21,6 +21,17 @@ import ResourceManagement from "./pages/ResourceManagement";
 import Estimation from "./pages/Estimation";
 import EmployeeDetails from "./pages/EmployeeDetails";
 
+// Import new module pages
+import BuyerTransactions from "./pages/BuyerTransactions";
+import EquipmentEntries from "./pages/EquipmentEntries";
+import SubcontractorsQuotations from "./pages/SubcontractorsQuotations";
+import Vouchers from "./pages/Vouchers";
+import VendorPayments from "./pages/VendorPayments";
+import VendorsList from "./pages/VendorsList";
+import LabourEntries from "./pages/LabourEntries";
+import LabourTemplate from "./pages/LabourTemplate";
+import LabourWorkType from "./pages/LabourWorkType";
+
 // Import all report pages
 import AgeingReport from "./pages/reports/AgeingReport";
 import BankTransactionReport from "./pages/reports/BankTransactionReport";
@@ -69,6 +80,17 @@ const App = () => (
           <Route path="/resource-management" element={<ResourceManagement />} />
           <Route path="/estimation" element={<Estimation />} />
           <Route path="/employee/:id" element={<EmployeeDetails />} />
+          
+          {/* New Module Pages */}
+          <Route path="/buyer-transactions" element={<BuyerTransactions />} />
+          <Route path="/equipment-entries" element={<EquipmentEntries />} />
+          <Route path="/subcontractors-quotations" element={<SubcontractorsQuotations />} />
+          <Route path="/vouchers" element={<Vouchers />} />
+          <Route path="/vendor-payments" element={<VendorPayments />} />
+          <Route path="/vendors-list" element={<VendorsList />} />
+          <Route path="/labour-entries" element={<LabourEntries />} />
+          <Route path="/labour-template" element={<LabourTemplate />} />
+          <Route path="/labour-work-type" element={<LabourWorkType />} />
           
           {/* Report Routes */}
           <Route path="/reports/ageing-report" element={<AgeingReport />} />
