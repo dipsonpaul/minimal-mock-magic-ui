@@ -43,13 +43,11 @@ const Dashboard = () => {
     { month: 'Jun', Income: 0.8, Expenses: 0.3 }
   ];
 
-  const colors = ['#3B82F6', '#EF4444', '#F59E0B'];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation Header */}
-      <header className="bg-slate-900 text-white shadow-md">
-        <div className="container mx-auto px-3">
+      <header className="bg-slate-900 text-white shadow-lg">
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-12">
             <div className="flex items-center space-x-6">
               <div className="text-lg font-bold text-blue-400">CoMS</div>
@@ -60,17 +58,17 @@ const Dashboard = () => {
                 <Link to="/sales" className="text-gray-300 hover:text-white text-xs font-medium">SALES</Link>
                 <Link to="/reports/daybook" className="bg-blue-600 text-white px-2 py-0.5 rounded text-xs font-medium">DAY BOOK</Link>
                 <Link to="/reports/daily-expense" className="text-gray-300 hover:text-white text-xs font-medium">DAILY EXPENSES</Link>
-                <Link to="/crm" className="text-gray-300 hover:text-white text-xs font-medium">BUYER</Link>
+                <Link to="/buyer-transactions" className="text-gray-300 hover:text-white text-xs font-medium">BUYER</Link>
                 <Link to="/hrms" className="text-gray-300 hover:text-white text-xs font-medium">LABOUR</Link>
-                <Link to="/crm" className="text-gray-300 hover:text-white text-xs font-medium">VENDORS</Link>
-                <Link to="/hrms" className="text-gray-300 hover:text-white text-xs font-medium">SUB CONTRACTORS</Link>
+                <Link to="/vendor-payments" className="text-gray-300 hover:text-white text-xs font-medium">VENDORS</Link>
+                <Link to="/subcontractors-quotations" className="text-gray-300 hover:text-white text-xs font-medium">SUB CONTRACTORS</Link>
                 <Link to="/resource-management" className="text-gray-300 hover:text-white text-xs font-medium">RMS</Link>
                 <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">SETTINGS</Link>
                 <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">REPORTS</Link>
               </nav>
             </div>
             <div className="flex items-center space-x-3">
-              <Badge variant="secondary" className="bg-red-600 text-white text-xs">Admin Admin</Badge>
+              <span className="text-white text-xs">Admin Admin</span>
             </div>
           </div>
         </div>
@@ -300,6 +298,24 @@ const Dashboard = () => {
           </Card>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t mt-8 py-4">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="text-sm text-gray-600">
+            Version 25.06.3
+          </div>
+          <div className="text-sm text-gray-600 text-center">
+            Powered by <span className="text-blue-600">bluehorizoninfotech.com</span><br />
+            Copyright © 2025. All Rights Reserved.
+          </div>
+          <div className="text-sm text-gray-600">
+            <select className="bg-transparent border-none">
+              <option>Admin Admin</option>
+            </select>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

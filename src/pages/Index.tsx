@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { 
   Users, Settings, BarChart3, FileText, ShoppingCart, 
   Warehouse, Calculator, UserCheck, ClipboardList, 
-  TrendingUp, ChevronDown, Table
+  TrendingUp
 } from 'lucide-react';
 
 const Index = () => {
@@ -122,111 +121,32 @@ const Index = () => {
     }
   ];
 
-  const reportItems = [
-    { name: "AGEING REPORT", route: "/reports/ageing-report" },
-    { name: "BANK TRANSACTION REPORT", route: "/reports/bank-transaction-report" },
-    { name: "BULK VENDOR PAYMENT", route: "/reports/bulk-vendor-payment" },
-    { name: "BUYER REPORT", route: "/reports/buyer-report" },
-    { name: "CASHBALANCE REPORT", route: "/reports/cashbalance-report" },
-    { name: "DAILY EXPENSE", route: "/reports/daily-expense" },
-    { name: "DAILY EXPENSE REPORT", route: "/reports/daily-expense-report" },
-    { name: "DAILY FINANCIAL REPORT", route: "/reports/daily-financial-report" },
-    { name: "DAILY FINANCIAL SUMMARY REPORT", route: "/reports/daily-financial-summary-report" },
-    { name: "DAY BOOK TRANSACTIONS", route: "/reports/day-book-transactions" },
-    { name: "DAYBOOK", route: "/reports/daybook" },
-    { name: "EXPORT DATA", route: "/reports/export-data" },
-    { name: "FINANCIAL REPORTS", route: "/reports/financial-reports" },
-    { name: "LABOUR REPORT", route: "/reports/labour-report" },
-    { name: "MATERIAL CONSUMPTION REPORT", route: "/reports/material-consumption-report" },
-    { name: "NEW PROJECTS", route: "/reports/new-projects" },
-    { name: "P/L REPORT", route: "/reports/pl-report" },
-    { name: "PENDING BILLS", route: "/reports/pending-bills" },
-    { name: "PETTY CASH REPORT", route: "/reports/petty-cash-report" },
-    { name: "PROJECT PAYMENT REPORT", route: "/reports/project-payment-report" },
-    { name: "PROJECT REPORT", route: "/reports/project-report" },
-    { name: "PURCHASE BILL REPORT", route: "/reports/purchase-bill-report" },
-  ];
-
-  const navigationItems = [
-    { name: "HOME", route: "/" },
-    { name: "DASHBOARD", route: "/dashboard" },
-    { name: "PURCHASE", route: "/procurement" },
-    { name: "WAREHOUSE", route: "/inventory" },
-    { name: "BUYER", route: "/procurement" },
-    { name: "RMS", route: "/resource-management" },
-    { 
-      name: "SALES & COMMUNICATION",
-      isDropdown: true, 
-      items: [
-        { name: "Sales", route: "/sales" },
-        { name: "CoMS", route: "/coms" }
-      ]
-    },
-    { 
-      name: "MODULES", 
-      isDropdown: true, 
-      items: [
-        { name: "HM", route: "/pms" },
-        { name: "CRM", route: "/crm" },
-        { name: "HRMS", route: "/hrms" },
-        { name: "Q/BQQ", route: "/quality-bqq" },
-        { name: "DMS", route: "/dms" },
-        { name: "ProMS", route: "/procurement" },
-        { name: "IMS", route: "/inventory" },
-        { name: "TMS", route: "/task-management" },
-        { name: "RMS", route: "/resource-management" },
-        { name: "Estimation", route: "/estimation" }
-      ]
-    },
-    { 
-      name: "REPORTS", 
-      isDropdown: true, 
-      items: reportItems
-    },
-    { name: "SETTINGS", route: "#" },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation Header */}
       <header className="bg-slate-900 text-white shadow-lg">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <div className="text-xl font-bold text-blue-400">Interior Design Co.</div>
+          <div className="flex items-center justify-between h-12">
+            <div className="flex items-center space-x-6">
+              <div className="text-lg font-bold text-blue-400">CoMS</div>
+              <nav className="hidden md:flex space-x-4">
+                <Link to="/" className="bg-blue-600 text-white px-2 py-0.5 rounded text-xs font-medium">HOME</Link>
+                <Link to="/procurement" className="text-gray-300 hover:text-white text-xs font-medium">PURCHASE</Link>
+                <Link to="/inventory" className="text-gray-300 hover:text-white text-xs font-medium">WAREHOUSE</Link>
+                <Link to="/sales" className="text-gray-300 hover:text-white text-xs font-medium">SALES</Link>
+                <Link to="/reports/daybook" className="text-gray-300 hover:text-white text-xs font-medium">DAY BOOK</Link>
+                <Link to="/reports/daily-expense" className="text-gray-300 hover:text-white text-xs font-medium">DAILY EXPENSES</Link>
+                <Link to="/buyer-transactions" className="text-gray-300 hover:text-white text-xs font-medium">BUYER</Link>
+                <Link to="/hrms" className="text-gray-300 hover:text-white text-xs font-medium">LABOUR</Link>
+                <Link to="/vendor-payments" className="text-gray-300 hover:text-white text-xs font-medium">VENDORS</Link>
+                <Link to="/subcontractors-quotations" className="text-gray-300 hover:text-white text-xs font-medium">SUB CONTRACTORS</Link>
+                <Link to="/resource-management" className="text-gray-300 hover:text-white text-xs font-medium">RMS</Link>
+                <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">SETTINGS</Link>
+                <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">REPORTS</Link>
+              </nav>
             </div>
-            <nav className="hidden md:flex space-x-8">
-              {navigationItems.map((item) => (
-                item.isDropdown ? (
-                  <DropdownMenu key={item.name}>
-                    <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium">
-                      {item.name}
-                      <ChevronDown className="h-4 w-4 ml-1" />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="bg-white border shadow-lg z-50 max-h-96 overflow-y-auto">
-                      {item.items?.map((subItem) => (
-                        <DropdownMenuItem key={subItem.name} asChild>
-                          <Link to={subItem.route} className="cursor-pointer">
-                            {subItem.name}
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.route}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-                  >
-                    {item.name}
-                  </Link>
-                )
-              ))}
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Badge variant="secondary" className="bg-red-600 text-white">
-                Logout
-              </Badge>
+            <div className="flex items-center space-x-3">
+              <span className="text-white text-xs">Admin Admin</span>
             </div>
           </div>
         </div>
@@ -295,12 +215,21 @@ const Index = () => {
         </div>
       </main>
 
-      <footer className="bg-slate-900 text-white py-6 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            Powered by <span className="text-blue-400 font-medium">Interior Design Suite</span> | 
-            Copyright © 2025. All Rights Reserved
-          </p>
+      {/* Footer */}
+      <footer className="bg-white border-t mt-8 py-4">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="text-sm text-gray-600">
+            Version 25.06.3
+          </div>
+          <div className="text-sm text-gray-600 text-center">
+            Powered by <span className="text-blue-600">bluehorizoninfotech.com</span><br />
+            Copyright © 2025. All Rights Reserved.
+          </div>
+          <div className="text-sm text-gray-600">
+            <select className="bg-transparent border-none">
+              <option>Admin Admin</option>
+            </select>
+          </div>
         </div>
       </footer>
     </div>
