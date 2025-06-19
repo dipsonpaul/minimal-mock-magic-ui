@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +8,8 @@ import {
   Warehouse, Calculator, UserCheck, ClipboardList, 
   TrendingUp
 } from 'lucide-react';
+import TopNavigation from "@/components/shared/TopNavigation";
+import Footer from "@/components/shared/Footer";
 
 const Index = () => {
   const [activeModule, setActiveModule] = useState(null);
@@ -123,34 +124,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation Header */}
-      <header className="bg-slate-900 text-white shadow-lg">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-12">
-            <div className="flex items-center space-x-6">
-              <div className="text-lg font-bold text-blue-400">CoMS</div>
-              <nav className="hidden md:flex space-x-4">
-                <Link to="/" className="bg-blue-600 text-white px-2 py-0.5 rounded text-xs font-medium">HOME</Link>
-                <Link to="/procurement" className="text-gray-300 hover:text-white text-xs font-medium">PURCHASE</Link>
-                <Link to="/inventory" className="text-gray-300 hover:text-white text-xs font-medium">WAREHOUSE</Link>
-                <Link to="/sales" className="text-gray-300 hover:text-white text-xs font-medium">SALES</Link>
-                <Link to="/reports/daybook" className="text-gray-300 hover:text-white text-xs font-medium">DAY BOOK</Link>
-                <Link to="/reports/daily-expense" className="text-gray-300 hover:text-white text-xs font-medium">DAILY EXPENSES</Link>
-                <Link to="/buyer-transactions" className="text-gray-300 hover:text-white text-xs font-medium">BUYER</Link>
-                <Link to="/hrms" className="text-gray-300 hover:text-white text-xs font-medium">LABOUR</Link>
-                <Link to="/vendor-payments" className="text-gray-300 hover:text-white text-xs font-medium">VENDORS</Link>
-                <Link to="/subcontractors-quotations" className="text-gray-300 hover:text-white text-xs font-medium">SUB CONTRACTORS</Link>
-                <Link to="/resource-management" className="text-gray-300 hover:text-white text-xs font-medium">RMS</Link>
-                <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">SETTINGS</Link>
-                <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">REPORTS</Link>
-              </nav>
-            </div>
-            <div className="flex items-center space-x-3">
-              <span className="text-white text-xs">Admin Admin</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      <TopNavigation />
 
       <main className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
@@ -215,23 +189,7 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t mt-8 py-4">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="text-sm text-gray-600">
-            Version 25.06.3
-          </div>
-          <div className="text-sm text-gray-600 text-center">
-            Powered by <span className="text-blue-600">bluehorizoninfotech.com</span><br />
-            Copyright © 2025. All Rights Reserved.
-          </div>
-          <div className="text-sm text-gray-600">
-            <select className="bg-transparent border-none">
-              <option>Admin Admin</option>
-            </select>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
