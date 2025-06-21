@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,7 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowLeft, Trash } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
-import { Badge } from '@/components/ui/badge';
+import TopNavigation from "@/components/shared/TopNavigation";
+import Footer from "@/components/shared/Footer";
 
 const DailyExpense = () => {
   const [showForm, setShowForm] = useState(false);
@@ -133,36 +133,8 @@ const DailyExpense = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation Header */}
-      <header className="bg-slate-900 text-white shadow-md">
-        <div className="container mx-auto px-3">
-          <div className="flex items-center justify-between h-12">
-            <div className="flex items-center space-x-6">
-              <div className="text-lg font-bold text-blue-400">CoMS</div>
-              <nav className="hidden md:flex space-x-4">
-                <Link to="/" className="text-gray-300 hover:text-white text-xs font-medium">HOME</Link>
-
-                <Link to="/Dashboard" className="text-gray-300 hover:text-white text-xs font-medium">Dashboard</Link>
-                <Link to="/procurement" className="text-gray-300 hover:text-white text-xs font-medium">PURCHASE</Link>
-                <Link to="/inventory" className="text-gray-300 hover:text-white text-xs font-medium">WAREHOUSE</Link>
-                <Link to="/sales" className="text-gray-300 hover:text-white text-xs font-medium">SALES</Link>
-                <Link to="/reports/daybook" className="text-gray-300 hover:text-white text-xs font-medium">DAY BOOK</Link>
-                <Link to="/reports/daily-expense" className="text-gray-300 hover:text-white text-xs font-medium">DAILY EXPENSES</Link>
-                <Link to="/crm" className="text-gray-300 hover:text-white text-xs font-medium">BUYER</Link>
-                <Link to="/hrms" className="text-gray-300 hover:text-white text-xs font-medium">LABOUR</Link>
-                <Link to="/crm" className="text-gray-300 hover:text-white text-xs font-medium">VENDORS</Link>
-                <Link to="/hrms" className="text-gray-300 hover:text-white text-xs font-medium">SUB CONTRACTORS</Link>
-                <Link to="/resource-management" className="text-gray-300 hover:text-white text-xs font-medium">RMS</Link>
-                <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">SETTINGS</Link>
-                <Link to="#" className="text-gray-300 hover:text-white text-xs font-medium">REPORTS</Link>
-              </nav>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Badge variant="secondary" className="bg-red-600 text-white text-xs">Admin Admin</Badge>
-            </div>
-          </div>
-        </div>
-      </header>
+      <TopNavigation />
+      
       <div className="p-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-6">
@@ -351,6 +323,8 @@ const DailyExpense = () => {
           </Card>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
