@@ -126,6 +126,7 @@ const Index = () => {
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
 
+      
       <main className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-800 mb-4">
@@ -140,7 +141,7 @@ const Index = () => {
           {modules.map((module) => {
             const IconComponent = module.icon;
             return (
-              <Card 
+              <Card
                 key={module.id}
                 className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border-0 shadow-md"
                 onMouseEnter={() => setActiveModule(module.id)}
@@ -165,7 +166,7 @@ const Index = () => {
                 <CardContent>
                   <div className="space-y-2">
                     {module.features.map((feature, index) => (
-                      <div 
+                      <div
                         key={index}
                         className="flex items-center text-sm text-slate-600"
                       >
@@ -175,7 +176,7 @@ const Index = () => {
                     ))}
                   </div>
                   <Link to={module.route}>
-                    <Button 
+                    <Button
                       className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
                       size="sm"
                     >
