@@ -23,14 +23,23 @@ import EmployeeDetails from "./pages/EmployeeDetails";
 
 // Import new module pages
 import BuyerTransactions from "./pages/BuyerTransactions";
+import BuyerInvoices from "./pages/BuyerInvoices";
 import EquipmentEntries from "./pages/EquipmentEntries";
 import SubcontractorsQuotations from "./pages/SubcontractorsQuotations";
+import SubcontractorPayments from "./pages/SubcontractorPayments";
+import SubcontractorBills from "./pages/SubcontractorBills";
 import Vouchers from "./pages/Vouchers";
 import VendorPayments from "./pages/VendorPayments";
 import VendorsList from "./pages/VendorsList";
 import LabourEntries from "./pages/LabourEntries";
 import LabourTemplate from "./pages/LabourTemplate";
 import LabourWorkType from "./pages/LabourWorkType";
+import ConsumptionReports from "./pages/ConsumptionReports";
+
+// Import settings pages
+import MediaSettings from "./pages/settings/MediaSettings";
+import MenuPermissions from "./pages/settings/MenuPermissions";
+import PdfLayouts from "./pages/settings/PdfLayouts";
 
 // Import all report pages
 import AgeingReport from "./pages/reports/AgeingReport";
@@ -83,14 +92,23 @@ const App = () => (
           
           {/* New Module Pages */}
           <Route path="/buyer-transactions" element={<BuyerTransactions />} />
+          <Route path="/buyer-invoices" element={<BuyerInvoices />} />
           <Route path="/equipment-entries" element={<EquipmentEntries />} />
           <Route path="/subcontractors-quotations" element={<SubcontractorsQuotations />} />
+          <Route path="/subcontractor-payments" element={<SubcontractorPayments />} />
+          <Route path="/subcontractor-bills" element={<SubcontractorBills />} />
           <Route path="/vouchers" element={<Vouchers />} />
           <Route path="/vendor-payments" element={<VendorPayments />} />
           <Route path="/vendors-list" element={<VendorsList />} />
           <Route path="/labour-entries" element={<LabourEntries />} />
           <Route path="/labour-template" element={<LabourTemplate />} />
           <Route path="/labour-work-type" element={<LabourWorkType />} />
+          <Route path="/consumption-reports" element={<ConsumptionReports />} />
+          
+          {/* Settings Routes */}
+          <Route path="/media-settings" element={<MediaSettings />} />
+          <Route path="/menu-permissions" element={<MenuPermissions />} />
+          <Route path="/pdf-layouts" element={<PdfLayouts />} />
           
           {/* Report Routes */}
           <Route path="/reports/ageing-report" element={<AgeingReport />} />
