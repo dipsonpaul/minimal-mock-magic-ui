@@ -135,12 +135,9 @@ const Daybook = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-       <TopNavigation />
-            </div>
-            <div className="flex items-center space-x-3">
-              <Badge variant="secondary" className="bg-red-600 text-white text-xs">Admin Admin</Badge>
-            </div>
-          </div>
+      <header>
+        <TopNavigation />
+        <div className="flex items-center space-x-3">
         </div>
       </header>
       <div className="p-6">
