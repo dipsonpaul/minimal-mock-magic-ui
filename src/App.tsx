@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,7 +33,25 @@ import VendorsList from "./pages/VendorsList";
 import LabourEntries from "./pages/LabourEntries";
 import LabourTemplate from "./pages/LabourTemplate";
 import LabourWorkType from "./pages/LabourWorkType";
+import LabourMaster from "./pages/LabourMaster";
 import ConsumptionReports from "./pages/ConsumptionReports";
+
+// Import Purchase pages
+import MaterialsRequisition from "./pages/MaterialsRequisition";
+import PurchaseOrders from "./pages/PurchaseOrders";
+import PurchaseBill from "./pages/PurchaseBill";
+import PreviewPurchase from "./pages/PreviewPurchase";
+
+// Import Sales pages
+import Quotation from "./pages/Quotation";
+import QuotationGeneration from "./pages/QuotationGeneration";
+import TermsAndConditions from "./pages/TermsAndConditions";
+
+// Import Warehouse pages
+import Warehouse from "./pages/Warehouse";
+import Dispatch from "./pages/Dispatch";
+import StockCorrection from "./pages/StockCorrection";
+import EffectReturn from "./pages/EffectReturn";
 
 // Import settings pages
 import MediaSettings from "./pages/settings/MediaSettings";
@@ -90,9 +107,33 @@ const App = () => (
           <Route path="/estimation" element={<Estimation />} />
           <Route path="/employee/:id" element={<EmployeeDetails />} />
           
-          {/* New Module Pages */}
+          {/* Purchase Routes */}
+          <Route path="/materials-requisition" element={<MaterialsRequisition />} />
+          <Route path="/purchase-orders" element={<PurchaseOrders />} />
+          <Route path="/purchase-bill" element={<PurchaseBill />} />
+          <Route path="/preview-purchase" element={<PreviewPurchase />} />
+          
+          {/* Sales Routes */}
+          <Route path="/quotation" element={<Quotation />} />
+          <Route path="/quotation-generation" element={<QuotationGeneration />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          
+          {/* Warehouse Routes */}
+          <Route path="/warehouse" element={<Warehouse />} />
+          <Route path="/dispatch" element={<Dispatch />} />
+          <Route path="/stock-correction" element={<StockCorrection />} />
+          <Route path="/effect-return" element={<EffectReturn />} />
+          
+          {/* Buyer Routes */}
           <Route path="/buyer-transactions" element={<BuyerTransactions />} />
           <Route path="/buyer-invoices" element={<BuyerInvoices />} />
+          
+          {/* Labour Routes */}
+          <Route path="/labour-master" element={<LabourMaster />} />
+          <Route path="/labour-template" element={<LabourTemplate />} />
+          <Route path="/labour-entries" element={<LabourEntries />} />
+          
+          {/* Other Module Pages */}
           <Route path="/equipment-entries" element={<EquipmentEntries />} />
           <Route path="/subcontractors-quotations" element={<SubcontractorsQuotations />} />
           <Route path="/subcontractor-payments" element={<SubcontractorPayments />} />
@@ -100,8 +141,6 @@ const App = () => (
           <Route path="/vouchers" element={<Vouchers />} />
           <Route path="/vendor-payments" element={<VendorPayments />} />
           <Route path="/vendors-list" element={<VendorsList />} />
-          <Route path="/labour-entries" element={<LabourEntries />} />
-          <Route path="/labour-template" element={<LabourTemplate />} />
           <Route path="/labour-work-type" element={<LabourWorkType />} />
           <Route path="/consumption-reports" element={<ConsumptionReports />} />
           

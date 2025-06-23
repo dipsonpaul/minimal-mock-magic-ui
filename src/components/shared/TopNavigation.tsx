@@ -18,13 +18,105 @@ const TopNavigation = () => {
             <div className="text-lg font-bold text-blue-400">CoMS</div>
             <nav className="hidden md:flex space-x-4">
               <Link to="/" className="text-gray-300 hover:text-white text-xs font-medium">HOME</Link>
-              <Link to="/procurement" className="text-gray-300 hover:text-white text-xs font-medium">PURCHASE</Link>
-              <Link to="/inventory" className="text-gray-300 hover:text-white text-xs font-medium">WAREHOUSE</Link>
-              <Link to="/sales" className="text-gray-300 hover:text-white text-xs font-medium">SALES</Link>
+              
+              {/* PURCHASE Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
+                  PURCHASE <ChevronDown className="ml-1 h-3 w-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white">
+                  <DropdownMenuItem>
+                    <Link to="/materials-requisition" className="text-gray-700 hover:text-gray-900">Materials Requisition</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/purchase-orders" className="text-gray-700 hover:text-gray-900">Purchase Orders</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/purchase-bill" className="text-gray-700 hover:text-gray-900">Purchase Bill</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/preview-purchase" className="text-gray-700 hover:text-gray-900">Preview Purchase</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {/* WAREHOUSE Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
+                  WAREHOUSE <ChevronDown className="ml-1 h-3 w-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white">
+                  <DropdownMenuItem>
+                    <Link to="/warehouse" className="text-gray-700 hover:text-gray-900">Warehouse</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/dispatch" className="text-gray-700 hover:text-gray-900">Dispatch</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/stock-correction" className="text-gray-700 hover:text-gray-900">Stock Correction</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/effect-return" className="text-gray-700 hover:text-gray-900">Effect Return</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {/* SALES Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
+                  SALES <ChevronDown className="ml-1 h-3 w-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white">
+                  <DropdownMenuItem>
+                    <Link to="/quotation" className="text-gray-700 hover:text-gray-900">Quotation</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/sales" className="text-gray-700 hover:text-gray-900">Sales</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/quotation-generation" className="text-gray-700 hover:text-gray-900">Quotation Generation</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/terms-and-conditions" className="text-gray-700 hover:text-gray-900">Terms and Conditions</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
               <Link to="/reports/daybook" className="text-gray-300 hover:text-white text-xs font-medium">DAY BOOK</Link>
               <Link to="/reports/daily-expense" className="text-gray-300 hover:text-white text-xs font-medium">DAILY EXPENSES</Link>
-              <Link to="/buyer-transactions" className="text-gray-300 hover:text-white text-xs font-medium">BUYER</Link>
-              <Link to="/hrms" className="text-gray-300 hover:text-white text-xs font-medium">LABOUR</Link>
+              
+              {/* BUYERS Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
+                  BUYERS <ChevronDown className="ml-1 h-3 w-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white">
+                  <DropdownMenuItem>
+                    <Link to="/buyer-transactions" className="text-gray-700 hover:text-gray-900">Transactions</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/buyer-invoices" className="text-gray-700 hover:text-gray-900">Invoices</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {/* LABOUR Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
+                  LABOUR <ChevronDown className="ml-1 h-3 w-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white">
+                  <DropdownMenuItem>
+                    <Link to="/labour-master" className="text-gray-700 hover:text-gray-900">Master</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/labour-template" className="text-gray-700 hover:text-gray-900">Templates</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/labour-entries" className="text-gray-700 hover:text-gray-900">Entries</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               
               {/* VENDORS Dropdown */}
               <DropdownMenu>
