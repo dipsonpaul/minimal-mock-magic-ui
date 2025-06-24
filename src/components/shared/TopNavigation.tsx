@@ -18,7 +18,9 @@ const TopNavigation = () => {
             <div className="text-lg font-bold text-blue-400">CoMS</div>
             <nav className="hidden md:flex space-x-4">
               <Link to="/" className="text-gray-300 hover:text-white text-xs font-medium">HOME</Link>
-              
+
+              <Link to="/dashboard" className="text-gray-300 hover:text-white text-xs font-medium">Dashboard</Link>
+
               {/* PURCHASE Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
@@ -84,7 +86,7 @@ const TopNavigation = () => {
 
               <Link to="/reports/daybook" className="text-gray-300 hover:text-white text-xs font-medium">DAY BOOK</Link>
               <Link to="/reports/daily-expense" className="text-gray-300 hover:text-white text-xs font-medium">DAILY EXPENSES</Link>
-              
+
               {/* BUYERS Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
@@ -117,7 +119,7 @@ const TopNavigation = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              
+
               {/* VENDORS Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
@@ -177,7 +179,61 @@ const TopNavigation = () => {
                 <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-white text-xs font-medium">
                   SETTINGS <ChevronDown className="ml-1 h-3 w-3" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white">
+                <DropdownMenuContent className="bg-white max-h-96 overflow-y-auto">
+                  <DropdownMenuItem>
+                    <Link to="/application-error-log" className="text-gray-700 hover:text-gray-900">Application Error Log</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/bank-reconciliation" className="text-gray-700 hover:text-gray-900">Bank Reconciliation</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/bank" className="text-gray-700 hover:text-gray-900">Bank</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/cash-balance" className="text-gray-700 hover:text-gray-900">Cash Balance</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/clients" className="text-gray-700 hover:text-gray-900">Clients</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/client-type" className="text-gray-700 hover:text-gray-900">Client Type</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/company-edit-log" className="text-gray-700 hover:text-gray-900">Company Edit Log</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/company" className="text-gray-700 hover:text-gray-900">Company</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/completed-projects" className="text-gray-700 hover:text-gray-900">Completed Projects</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/daily-expense-type" className="text-gray-700 hover:text-gray-900">Daily Expense Type</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/delete-requests" className="text-gray-700 hover:text-gray-900">Delete Requests</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/deposit" className="text-gray-700 hover:text-gray-900">Deposit</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/duplicate-entries" className="text-gray-700 hover:text-gray-900">Duplicate Entries</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/equipments" className="text-gray-700 hover:text-gray-900">Equipments</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/expense-head" className="text-gray-700 hover:text-gray-900">Expense Head</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/general-settings" className="text-gray-700 hover:text-gray-900">General Settings</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/location" className="text-gray-700 hover:text-gray-900">Location</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/materials" className="text-gray-700 hover:text-gray-900">Materials</Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link to="/media-settings" className="text-gray-700 hover:text-gray-900">Media Settings</Link>
                   </DropdownMenuItem>
